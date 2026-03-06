@@ -1,60 +1,52 @@
-﻿
-API Reference
-=============
+﻿.. module:: bayesflow
 
-This is the reference for the public API. For a more guided introduction,
-please refer to the :doc:`Examples <../examples>` section.
+.. _reference:
 
+#######################
+BayesFlow API reference
+#######################
 
+:Release: |version|
+:Date: |today|
 
-.. automodule:: bayesflow
-  :member-order: alphabetical
+This is the reference for the public API. 
+For a more guided introduction, please refer to the
+:doc:`Examples <../examples/index>` section.
+Modules are grouped into core workflows, model components, and utility
+functionality.
 
-  
-  
-  .. rubric:: Modules
+Core API
+========
 
-  .. autosummary::
-    :toctree:
-    :template: custom-module-template.rst
-    :recursive:
-  
-    adapters
-    approximators
-    augmentations
-    datasets
-    diagnostics
-    distributions
-    experimental
-    links
-    metrics
-    networks
-    scores
-    simulators
-    types
-    utils
-    workflows
-    wrappers
+.. toctree::
+   :maxdepth: 1
 
-  
-  
+   bayesflow.workflows
+   bayesflow.simulators
+   bayesflow.datasets
 
-  
-  
-  
+Model components
+================
 
-  
-  
-  
+.. toctree::
+   :maxdepth: 1
 
-  
-  
-  
+   bayesflow.networks
+   bayesflow.approximators
+   bayesflow.distributions
+   bayesflow.adapters
+   bayesflow.scores
 
-  
-  
-  
+Utilities
+=========
 
- 
-  
-  
+.. toctree::
+   :maxdepth: 1
+
+   bayesflow.diagnostics
+   bayesflow.metrics
+   bayesflow.utils
+   bayesflow.types
+   bayesflow.wrappers
+   bayesflow.links
+   bayesflow.experimental
