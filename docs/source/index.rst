@@ -12,6 +12,7 @@ Bayesflow documentation
    API reference <api/index>
    About us <about/index>
    Contributing <contributing/index>
+   Developer Docs <development/index>
 
 
 **Version**: |version|
@@ -103,6 +104,3 @@ networks and flexible generative models.
 
             To the contributor's guide
 
-.. This is not really the index page, that is found in
-   _templates/indexcontent.html The toctree content here will be added to the
-   top of the template header
