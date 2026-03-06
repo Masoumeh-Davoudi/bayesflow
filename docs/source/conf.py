@@ -202,7 +202,7 @@ suppress_warnings = [
 
 remove_from_toctrees = ["_autosummary/*"]
 
-autosummmary_generate = True
+autosummary_generate = True
 
 # versioning data for template
 if USE_POLYVERSION:
