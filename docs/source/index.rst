@@ -12,7 +12,7 @@ Bayesflow documentation
    API reference <api/index>
    About us <about/index>
    Contributing <contributing/index>
-   Developer Docs <development/index>
+   Developer Docs <development/index.md>
 
 
 **Version**: |version|

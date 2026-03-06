@@ -279,16 +279,3 @@ Indices
 * {ref}`genindex`
 * {ref}`modindex`
 
-
-```{toctree}
-:maxdepth: 0
-:titlesonly:
-:hidden:
-
-examples/index
-user_guide/index
-api/index
-about/index
-contributing/index
-Developer Docs <development/index>
-```
