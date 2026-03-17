@@ -139,6 +139,7 @@ html_title = "BayesFlow: Amortized Bayesian Inference"
 html_static_path = ["_static"]
 html_css_files = ["css/custom.css"]
 html_show_sourcelink = False
+header_links_before_dropdown = 6
 html_theme_options = {
     "use_edit_page_button": False,
     "logo": {
@@ -165,7 +166,7 @@ html_theme_options = {
     # -- Template placement in theme layouts ----------------------------------
     "navbar_start": ["navbar-logo"],
     # Note that the alignment of navbar_center is controlled by navbar_align
-    "navbar_center": ["navbar-nav"],
+    "navbar_center": ["navbar-nav-custom"],
     "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
     # navbar_persistent is persistent right (even when on mobiles)
     "navbar_persistent": ["search-button"],

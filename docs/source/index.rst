@@ -1,7 +1,7 @@
 
-###################
+#######################
 Bayesflow documentation
-###################
+#######################
 
 .. toctree::
    :maxdepth: 1
@@ -11,15 +11,38 @@ Bayesflow documentation
    User Guide <user_guide/index>
    API reference <api/index>
    About us <about/index>
-   Contributing <contributing/index>
-   Developer Docs <development/index.md>
+   Development  <development/index.md>
 
+.. container:: homepage-hero
+
+   .. grid:: 1 1 2 2
+      :gutter: 3
+
+      .. grid-item::
+
+         .. image:: _static/img/bayesflow_hor.png
+            :width: 100%
+            :alt: BayesFlow banner
+
+         BayesFlow for simulation-based inference
+         ========================================
+
+         BayesFlow is a library for simulation-based inference (SBI) with
+         amortized neural networks and flexible generative models.
+
+         It provides workflows, networks, simulators, diagnostics, and tools
+         for modern Bayesian deep learning.
+
+      .. grid-item::
+
+         .. image:: _static/img/bayesflow_hor.png
+            :width: 100%
+            :alt: BayesFlow banner
 
 **Version**: |version|
 
 Bayesflow is a library for simulation-based inference (SBI) with amortized neural
 networks and flexible generative models.
-
 
 
 .. grid:: 1 1 2 2

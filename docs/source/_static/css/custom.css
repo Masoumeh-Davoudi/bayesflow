@@ -39,3 +39,14 @@ img[src$=".png"] {
 html[data-theme=dark] .sd-card img[src*='.svg'] {
   filter: invert(0.82) brightness(0.8) contrast(1.2);
 }
+
+.homepage-hero {
+  padding: 2rem;
+  border-radius: 28px;
+  border: 1px solid var(--pst-color-border);
+  margin: 1.5rem 0 2rem 0;
+}
+
+.homepage-hero img {
+  max-width: 100%;
+}
