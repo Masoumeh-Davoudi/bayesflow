@@ -50,3 +50,41 @@ html[data-theme=dark] .sd-card img[src*='.svg'] {
 .homepage-hero img {
   max-width: 100%;
 }
+
+.bd-main .bd-content .bd-article-container {
+  max-width: 68em;   /* default is 60em */
+}
+
+.bf-feature-section {
+  margin: 2.5rem 0;
+}
+
+.bf-feature-card {
+  height: 100%;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.bf-feature-card p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.bf-feature-card .sd-card-title,
+.bf-feature-card .sd-card-header {
+  font-weight: 700;
+}
+
+/* Light mode */
+html[data-theme="light"] .bf-feature-card {
+  background: #f5f7fb;
+  border-color: #e3e8f0;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .bf-feature-card {
+  background: #1f2937;
+  border-color: #2d3748;
+}
