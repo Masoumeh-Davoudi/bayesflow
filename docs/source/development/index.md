@@ -13,6 +13,7 @@ practice.
 ```{toctree}
 :maxdepth: 1
 
+contributing
 introduction
 pitfalls
 stages
