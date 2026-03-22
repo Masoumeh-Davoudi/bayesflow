@@ -10,9 +10,10 @@ Bayesflow documentation
 
    Getting Started <getting_started/index>
    User Guide <user_guide/index>
-   API reference <api/index>
+   API reference <api/bayesflow>
    About us <about/index>
-   Development <development/index.md>
+   Development <development/index>
+
 
 BayesFlow is a Python library for efficient Bayesian inference with deep learning.
 It provides users with:
@@ -134,7 +135,7 @@ be described analytically.
 
       +++
 
-      .. button-ref:: api/index
+      .. button-ref:: api/bayesflow
          :expand:
          :color: secondary
          :click-parent:
