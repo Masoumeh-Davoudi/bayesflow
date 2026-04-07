@@ -1,20 +1,50 @@
-# Minimal makefile for Sphinx documentation
-#
+.PHONY: production-docs-sequential
+production-docs-sequential:
+	@sphinx-polyversion --sequential poly.py
+	@echo 'Copying docs to build/html'
+	@rm -rf build/html
+	@mkdir -p build/html
+	@cp -r _build_polyversion/* build/html
+	@cp .nojekyll build/html/.nojekyll
+	@rm -rf _build_polyversion
 
-# You can set these variables from the command line, and also
-# from the environment for the first two.
-SPHINXOPTS    ?=
-SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = source
-BUILDDIR      = build
+.PHONY: production-docs
+production-docs:
+	@sphinx-polyversion poly.py
+	@echo 'Copying docs to build/html'
+	@rm -rf build/html
+	@mkdir -p build/html
+	@cp -r _build_polyversion/* build/html
+	@cp .nojekyll build/html/.nojekyll
+	@rm -rf _build_polyversion
 
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+.PHONY: local-docs
+local-docs:
+	@sphinx-polyversion --local poly.py
+	@echo 'Copying docs to build/html'
+	@rm -rf build/html
+	@mkdir -p build/html
+	@cp -r _build_polyversion/* build/html
+	@cp .nojekyll build/html/.nojekyll
+	@rm -rf _build_polyversion
 
-.PHONY: help Makefile
+.PHONY: view-docs
+view-docs:
+	@echo "Serving the contents of 'build/html'... (open the link below to view)."
+	@echo "Interrupt with Ctrl+C."
+	@python -m http.server -d build/html -b 127.0.0.1 8090
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+.PHONY: clean
+clean:
+	@rm -rf build/html
+	@rm -rf _build
+	@rm -rf $(BUILDDIR)
+	@rm -rf _build_polyversion
+	@rm -rf source/_examples
+	@rm -f source/contributing.md
+	@rm -f source/installation.rst
+
+.PHONY: clean-all
+clean-all:
+	@rm -rf .docs_venvs .bf_doc_gen_venv
+	@make clean

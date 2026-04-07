@@ -2,34 +2,72 @@
 
 pushd %~dp0
 
-REM Command file for Sphinx documentation
+REM Command file for sphinx-polyversion documentation
 
-if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=sphinx-build
-)
-set SOURCEDIR=source
-set BUILDDIR=build
-
-%SPHINXBUILD% >NUL 2>NUL
-if errorlevel 9009 (
-	echo.
-	echo.The 'sphinx-build' command was not found. Make sure you have Sphinx
-	echo.installed, then set the SPHINXBUILD environment variable to point
-	echo.to the full path of the 'sphinx-build' executable. Alternatively you
-	echo.may add the Sphinx directory to PATH.
-	echo.
-	echo.If you don't have Sphinx installed, grab it from
-	echo.https://www.sphinx-doc.org/
-	exit /b 1
-)
+echo.Warning: This make.bat was not tested. If you encounter errors, please
+echo.refer to Makefile and open an issue.
 
 if "%1" == "" goto help
-
-%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
-goto end
+if "%1" == "production-docs" goto docs
+if "%1" == "production-docs-sequential" goto docssequential
+if "%1" == "local-docs" goto localdocs
+if "%1" == "clean" goto clean
+if "%1" == "clean-all" goto cleanall
+if "%1" == "view-docs" goto viewdocs
 
 :help
-%SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+echo.Please specify a command (local-docs, production-docs, production-docs-sequential, clean, clean-all)
+goto end
+
+:localdocs
+sphinx-polyversion --local poly.py
+echo.Copying docs to build/html
+rmdir /q /s build\html
+mkdir build\html
+xcopy /y /s _build_polyversion\* build\html\
+xcopy /y .nojekyll build\html\.nojekyll
+rmdir /q /s _build_polyversion
+goto end
+
+:docssequential
+sphinx-polyversion --sequential poly.py
+echo.Copying docs to build/html
+rmdir /q /s build\html
+mkdir build\html
+xcopy /y /s _build_polyversion\* build\html\
+xcopy /y .nojekyll build\html\.nojekyll
+rmdir /q /s _build_polyversion
+goto end
+
+:docs
+sphinx-polyversion poly.py
+echo.Copying docs to build/html
+rmdir /q /s build\html
+mkdir build\html
+xcopy /y /s _build_polyversion\* build\html\
+xcopy /y .nojekyll build\html\.nojekyll
+rmdir /q /s _build_polyversion
+goto end
+
+:viewdocs
+echo.Serving the contents of 'build/html'... (open the link below to view).
+echo.Interrupt with Ctrl+C.
+python -m http.server -d build/html -b 127.0.0.1 8090
+goto end
+
+:clean
+rmdir /q /s build\html
+rmdir /q /s _build
+rmdir /q /s %BUILDDIR%
+rmdir /q /s _build_polyversion
+rmdir /q /s source\_examples
+del /q /s source\contributing.md
+del /q /s source\installation.rst
+goto end
+
+:cleanall
+del /q /s .docs_venvs .bf_doc_gen_venv
+goto clean
 
 :end
 popd

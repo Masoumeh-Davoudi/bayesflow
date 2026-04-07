@@ -181,7 +181,7 @@ html_context = {
     "github_user": "bayesflow-org",
     "github_repo": "bayesflow",
     "github_version": current,
-    "doc_path": "docsrc/source",
+    "doc_path": "docs/source",
 }
 html_logo = "_static/img/bayesflow_hor.png"
 html_favicon = "_static/img/bayesflow_hex.ico"
